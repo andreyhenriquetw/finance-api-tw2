@@ -12,11 +12,14 @@ export const created = (body) => {
     }
 }
 
-export const serverError = () => {
-    return {
-        statusCode: 500,
-        body: {
-            message: 'Internal server error',
-        },
-    }
-}
+export const serverError = () => ({
+    statusCode: 500,
+    body: {
+        message: 'Internal server error',
+    },
+})
+
+export const ok = (body) => ({
+    statusCode: 200,
+    body,
+})
