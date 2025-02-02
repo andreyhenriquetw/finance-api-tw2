@@ -1,4 +1,4 @@
-import { UpdateUserUseCase } from '../use-cases/update-user.js'
+import { UpdateUserUseCase } from '../use-cases/index.js'
 import { EmailAlreadyInUseError } from '../errors/user.js'
 import {
     checkIfEmailIsValid,
@@ -51,10 +51,10 @@ export class UpdateUserController {
             }
 
             if (params.email) {
-                const emailIsValid = checkIfEmailIsValid()
+                const emailIsValid = checkIfEmailIsValid(params.email)
 
                 if (!emailIsValid) {
-                    return emailIsAlreadyInUseResponse(params.email)
+                    return emailIsAlreadyInUseResponse()
                 }
             }
 
